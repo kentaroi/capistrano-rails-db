@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-rails-db"
-  gem.version       = '0.0.1'
+  gem.version       = '0.0.2'
   gem.authors       = ["Kentaro Imai"]
   gem.email         = ["kentaroi@gmail.com"]
   gem.description   = %q{Rails migration tasks for Capistrano v3}
