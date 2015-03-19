@@ -17,7 +17,7 @@ namespace :deploy do
       reset: 'Drop and recreate the database from db/schema.rb and load the seeds',
       version: 'Retrieve the current schema version number'
     }.each do |task_name, task_desc|
-      desc "Run rake db:#{task_name}".ljust(29) + task_desc
+      desc "Run rake db:#{task_name}".ljust(28) + task_desc
       task task_name => [:set_rails_env, :set_rails_db_options] do
         on primary fetch(:migration_role) do
           info "[deploy:db:#{task_name}] Run `rake db:#{task_name}`"
@@ -37,7 +37,7 @@ namespace :deploy do
         redo: 'Rollback the database one migration and re migrate up (options: STEP=x, VERSION=x).',
         reset: 'Reset your database using your migrations'
       }.each do |task_name, task_desc|
-        desc "Run rake db:migrate:#{task_name}".ljust(29) + task_desc
+        desc "Run rake db:migrate:#{task_name}".ljust(28) + task_desc
         task task_name => [:set_rails_env, :set_rails_db_options] do
           on primary fetch(:migration_role) do
             info "[deploy:db:migrate:#{task_name}] Run `rake db:migrate:#{task_name}`"
