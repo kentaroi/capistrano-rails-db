@@ -1,21 +1,25 @@
-# Capistrano::Rails:Db
+# Capistrano::Rails::Db
 
 Rails migration tasks for Capistrano v3:
 
-  - `cap deploy:db:abort_if_pending_migrations`
-  - `cap deploy:db:create`
-  - `cap deploy:db:drop`
-  - `cap deploy:db:migrate`
-  - `cap deploy:db:migrate:down`
-  - `cap deploy:db:migrate:redo`
-  - `cap deploy:db:migrate:reset`
-  - `cap deploy:db:migrate:status`
-  - `cap deploy:db:migrate:up`
-  - `cap deploy:db:reset`
-  - `cap deploy:db:rollback`
-  - `cap deploy:db:seed`
-  - `cap deploy:db:setup`
-  - `cap deploy:db:version`
+Run `cap -T deploy:db` in the terminal to get a full list of the migration tasks:
+
+``` bash
+cap deploy:db:abort_if_pending_migrations  # Run rake db:abort_if_pending_migrations
+cap deploy:db:create                       # Run rake db:create
+cap deploy:db:drop                         # Run rake db:drop
+cap deploy:db:migrate                      # Run rake db:migrate         Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)
+cap deploy:db:migrate:down                 # Run rake db:migrate:down    Run the "down" for a given migration VERSION
+cap deploy:db:migrate:redo                 # Run rake db:migrate:redo    Rollback the database one migration and re migrate up (options: STEP=x, VERSION=x)
+cap deploy:db:migrate:reset                # Run rake db:migrate:reset   Reset your database using your migrations
+cap deploy:db:migrate:status               # Run rake db:migrate:status  Display status of migrations
+cap deploy:db:migrate:up                   # Run rake db:migrate:up      Run the "up" for a given migration VERSION
+cap deploy:db:reset                        # Run rake db:reset           Drop and recreate the database from db/schema.rb and load the seeds
+cap deploy:db:rollback                     # Run rake db:rollback        Roll the schema back to the previous version (specify steps w/ STEP=n)
+cap deploy:db:seed                         # Run rake db:seed            Load the seed data from db/seed.rb
+cap deploy:db:setup                        # Run rake db:setup           Create the database, load the schema, and initialize with the seed data
+cap deploy:db:version                      # Run rake db:version         Retrieve the current schema version number
+```
 
 ## Installation
 
