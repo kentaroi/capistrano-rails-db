@@ -4,7 +4,10 @@ namespace :deploy do
       set :rails_db_options, [ ENV['VERSION'] ? "VERSION=#{ENV['VERSION']}" : nil,
                                ENV['VERBOSE'] ? "VERBOSE=#{ENV['VERBOSE']}" : nil,
                                ENV['SCOPE']   ? "SCOPE=#{ENV['SCOPE']}"     : nil,
-                               ENV['STEP']    ? "STEP=#{ENV['STEP']}"       : nil ].compact
+                               ENV['STEP']    ? "STEP=#{ENV['STEP']}"       : nil,
+                               ENV['DISABLE_DATABASE_ENVIRONMENT_CHECK'] ?
+                                   "DISABLE_DATABASE_ENVIRONMENT_CHECK=#{ENV['DISABLE_DATABASE_ENVIRONMENT_CHECK']}" :
+                                   nil].compact
     end
 
     { abort_if_pending_migrations: '',
