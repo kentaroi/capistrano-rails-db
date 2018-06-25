@@ -18,7 +18,8 @@ namespace :deploy do
       seed: 'Load the seed data from db/seed.rb',
       setup: 'Create the database, load the schema, and initialize with the seed data',
       reset: 'Drop and recreate the database from db/schema.rb and load the seeds',
-      version: 'Retrieve the current schema version number'
+      version: 'Retrieve the current schema version number',
+      "structure:load": 'Load db/structure.sql'
     }.each do |task_name, task_desc|
       desc "Run rake db:#{task_name}".ljust(28) + task_desc
       task task_name => [:set_rails_env, :set_rails_db_options] do
